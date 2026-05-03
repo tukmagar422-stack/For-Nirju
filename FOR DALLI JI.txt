@@ -1,0 +1,85 @@
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>For You 💌</title>
+<style>
+body {
+  background: black;
+  color: pink;
+  font-family: monospace;
+  text-align: center;
+  margin-top: 100px;
+}
+
+#text {
+  font-size: 24px;
+  border-right: 2px solid pink;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 4s steps(40, end) forwards, blink 0.8s infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+.heart {
+  position: fixed;
+  color: red;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); }
+}
+
+button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background: pink;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>For You, Niru dalli 💕</h2>
+
+<div id="text">Hey Niru dalli … I just wanted to say I really like you ❤️</div>
+
+<button onclick="playMusic()">Click me 💌</button>
+
+<audio id="music">
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playMusic() {
+  document.getElementById("music").play();
+}
+
+// hearts
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 5000);
+}, 300);
+</script>
+
+</body>
+</html>
